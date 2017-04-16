@@ -72,7 +72,7 @@ class ZyhServiceProvider extends ServiceProvider
      */
     protected function registerConfig()
     {
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/api.php'), 'api');
+        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/apigateway.php'), 'apigateway');
 
         if (! $this->app->runningInConsole() && empty($this->config('prefix')) && empty($this->config('domain'))) {
             throw new RuntimeException('Unable to boot ApiServiceProvider, configure an API domain or prefix.');

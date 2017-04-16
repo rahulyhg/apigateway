@@ -40,5 +40,11 @@
         "files": [
             "src/helpers.php"
         ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
     }
 }

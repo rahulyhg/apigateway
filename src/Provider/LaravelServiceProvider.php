@@ -23,7 +23,7 @@ class LaravelServiceProvider extends ZyhServiceProvider
     {
         parent::boot();
 
-        $this->publishes([realpath(__DIR__.'/../../config/api.php') => config_path('api.php')]);
+        $this->publishes([realpath(__DIR__.'/../../config/apigateway.php') => config_path('apigateway.php')]);
 
         $kernel = $this->app->make(Kernel::class);
 

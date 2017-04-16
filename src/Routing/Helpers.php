@@ -5,13 +5,11 @@ namespace Zyh\ApiGateway\Routing;
 use ErrorException;
 use Zyh\ApiGateway\Auth\Auth;
 use Zyh\ApiGateway\Dispatcher;
-use Zyh\ApiGateway\Http\Response\Factory;
 
 /**
  * @property \Zyh\ApiGateway\Dispatcher                                            $api
  * @property \Illuminate\Auth\GenericUser|\Illuminate\Database\Eloquent\Model $user
  * @property \Zyh\ApiGateway\Auth\Auth                                             $auth
- * @property \Zyh\ApiGateway\Http\Response\Factory                                 $response
  */
 trait Helpers
 {
@@ -183,16 +181,6 @@ trait Helpers
     }
 
     /**
-     * Get the response factory instance.
-     *
-     * @return \Zyh\ApiGateway\Http\Response\Factory
-     */
-    protected function response()
-    {
-        return app(Factory::class);
-    }
-
-    /**
      * Magically handle calls to certain properties.
      *
      * @param string $key
@@ -204,7 +192,7 @@ trait Helpers
     public function __get($key)
     {
         $callable = [
-            'api', 'user', 'auth', 'response',
+            'api', 'user', 'auth',
         ];
 
         if (in_array($key, $callable) && method_exists($this, $key)) {

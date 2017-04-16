@@ -102,4 +102,14 @@ return [
     'formats' => [
         'json' => Zyh\ApiGateway\Http\Response\Format\Json::class,
     ],
+
+    /**
+     * 服务配置
+     */
+    'service' => [
+        //本地调用服务
+        'local' => [
+            'classBuild' => "App\Http\Services\%s\%s\Controllers\%s",
+        ]
+    ]
 ];
