@@ -6,7 +6,7 @@
 ### Installation
 
 ```shell
-composer require "zhuyanhai/apiserver:dev-master" -vvv
+composer require "zhuyanhai/apigateway:dev-master" -vvv
 ```
 
 ### Usage
