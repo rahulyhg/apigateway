@@ -16,12 +16,18 @@ trait Helpers
      */
     protected function syncCallService($version, $service, $params = array())
     {
-        $services   = explode('.', $service);
+        $services = explode('.', $service);
+        $service  = implode('/', $services);
+
 
         //todo 控制服务的调用，远程 亦或 本地
         //目前全本地
 
-        $classBuild = config('apigateway.service.local.classBuild');
+        $dispatcher = app('Zyh\MicroService\Dispatcher');
+
+        return $dispatcher->version($version)->with($params)->post($service);
+
+/*        $classBuild = config('apigateway.service.local.classBuild');
         $className  = sprintf($classBuild, ucfirst($version), ucfirst($services[0]), ucfirst($services[1]));
         $serviceObj = new $className($params);
         try {
@@ -32,7 +38,7 @@ trait Helpers
             //empty
         }
 
-        return $serviceObj->getError();
+        return $serviceObj->getError();*/
     }
 
     /**
@@ -45,7 +51,7 @@ trait Helpers
      */
     protected function asyncCallService()
     {
-
+        //todo
     }
 
 }
