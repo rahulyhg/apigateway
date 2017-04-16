@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7d44f35392c64ea76a9167c6c746efc",
+    "content-hash": "43fd80d7530efaffe46ab58b22f21cb7",
     "packages": [
         {
             "name": "dingo/blueprint",
@@ -1548,6 +1548,65 @@
                 "validate"
             ],
             "time": "2016-11-23 20:04:41"
+        },
+        {
+            "name": "zhuyanhai/microservice",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhuyanhai/microservice.git",
+                "reference": "7789c0b0965fb1ebf94f1851a6e2be4cf3e1142d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/zhuyanhai/microservice/7789c0b0965fb1ebf94f1851a6e2be4cf3e1142d.zip",
+                "reference": "7789c0b0965fb1ebf94f1851a6e2be4cf3e1142d",
+                "shasum": ""
+            },
+            "require": {
+                "dingo/blueprint": "0.2.*",
+                "illuminate/routing": "^5.3",
+                "illuminate/support": "^5.3",
+                "league/fractal": ">=0.16.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "illuminate/auth": "^5.3",
+                "illuminate/cache": "^5.3",
+                "illuminate/console": "^5.3",
+                "illuminate/database": "^5.3",
+                "illuminate/events": "^5.3",
+                "illuminate/filesystem": "^5.3",
+                "illuminate/log": "^5.3",
+                "illuminate/pagination": "^5.3",
+                "laravel/lumen-framework": "5.3.*",
+                "lucadegasperi/oauth2-server-laravel": "5.2.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "^6.1",
+                "squizlabs/php_codesniffer": "~2.0",
+                "tymon/jwt-auth": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zyh\\MicroService\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zhuyanhai",
+                    "email": "allenifox@163.com"
+                }
+            ],
+            "description": "服务于第三方的微服务框架",
+            "time": "2017-04-16 10:38:10"
         }
     ],
     "packages-dev": [
@@ -1752,7 +1811,7 @@
             ],
             "description": "The Illuminate Broadcasting package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/bus",
@@ -1797,7 +1856,7 @@
             ],
             "description": "The Illuminate Bus package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/cache",
@@ -2050,7 +2109,7 @@
             ],
             "description": "The Illuminate Encryption package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/events",
@@ -2139,7 +2198,7 @@
             ],
             "description": "The Illuminate Hashing package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/log",
@@ -2282,7 +2341,7 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/translation",
@@ -2327,7 +2386,7 @@
             ],
             "description": "The Illuminate Translation package.",
             "homepage": "https://laravel.com",
-            "time": "2016-12-23T01:26:32+00:00"
+            "time": "2016-12-23 01:26:32"
         },
         {
             "name": "illuminate/validation",
@@ -2377,7 +2436,7 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "https://laravel.com",
-            "time": "2017-02-18T04:02:30+00:00"
+            "time": "2017-02-18 04:02:30"
         },
         {
             "name": "illuminate/view",
@@ -2508,7 +2567,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2017-01-25T14:03:08+00:00"
+            "time": "2017-01-25 14:03:08"
         },
         {
             "name": "league/event",
@@ -4437,7 +4496,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21T17:13:55+00:00"
+            "time": "2017-01-21 17:13:55"
         },
         {
             "name": "tymon/jwt-auth",
@@ -4507,7 +4566,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "zhuyanhai/microservice": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

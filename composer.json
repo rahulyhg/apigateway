@@ -15,7 +15,8 @@
         "dingo/blueprint": "0.2.*",
         "illuminate/routing": "^5.3",
         "illuminate/support": "^5.3",
-        "league/fractal": ">=0.16.0"
+        "league/fractal": ">=0.16.0",
+        "zhuyanhai/microservice": "dev-master"
     },
     "require-dev": {
         "illuminate/auth": "^5.3",
