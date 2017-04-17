@@ -13,6 +13,6 @@ class Route extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'api.router';
+        return 'apigateway.router';
     }
 }

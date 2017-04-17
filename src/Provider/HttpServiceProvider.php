@@ -47,7 +47,7 @@ class HttpServiceProvider extends ServiceProvider
      */
     protected function registerRateLimiting()
     {
-        $this->app->singleton('api.limiting', function ($app) {
+        $this->app->singleton('apigateway.limiting', function ($app) {
             return new RateLimitHandler($app, $app['cache'], $this->config('throttling'));
         });
     }
@@ -59,7 +59,7 @@ class HttpServiceProvider extends ServiceProvider
      */
     protected function registerHttpValidation()
     {
-        $this->app->singleton('api.http.validator', function ($app) {
+        $this->app->singleton('apigateway.http.validator', function ($app) {
             return new RequestValidator($app);
         });
 
@@ -103,7 +103,7 @@ class HttpServiceProvider extends ServiceProvider
      */
     protected function registerResponseFactory()
     {
-        $this->app->singleton('api.http.response', function ($app) {
+        $this->app->singleton('apigateway.http.response', function ($app) {
             return new ResponseFactory($app[Factory::class]);
         });
     }

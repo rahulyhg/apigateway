@@ -23,8 +23,8 @@ class ZyhServiceProvider extends ServiceProvider
 
         Request::setAcceptParser($this->app['Zyh\ApiGateway\Http\Parser\Accept']);
 
-        $this->app->rebinding('api.routes', function ($app, $routes) {
-            $app['api.url']->setRouteCollections($routes);
+        $this->app->rebinding('apigateway.routes', function ($app, $routes) {
+            $app['apigateway.url']->setRouteCollections($routes);
         });
     }
 
@@ -88,15 +88,15 @@ class ZyhServiceProvider extends ServiceProvider
     {
         $aliases = [
             'Zyh\ApiGateway\Http\Request' => 'Zyh\ApiGateway\Contract\Http\Request',
-            'api.dispatcher' => 'Zyh\ApiGateway\Dispatcher',
-            'api.http.validator' => 'Zyh\ApiGateway\Http\RequestValidator',
-            'api.http.response' => 'Zyh\ApiGateway\Http\Response\Factory',
-            'api.router' => 'Zyh\ApiGateway\Routing\Router',
-            'api.router.adapter' => 'Zyh\ApiGateway\Contract\Routing\Adapter',
-            'api.auth' => 'Zyh\ApiGateway\Auth\Auth',
-            'api.limiting' => 'Zyh\ApiGateway\Http\RateLimit\Handler',
-            'api.url' => 'Zyh\ApiGateway\Routing\UrlGenerator',
-            'api.exception' => ['Zyh\ApiGateway\Exception\Handler', 'Zyh\ApiGateway\Contract\Debug\ExceptionHandler'],
+            'apigateway.dispatcher' => 'Zyh\ApiGateway\Dispatcher',
+            'apigateway.http.validator' => 'Zyh\ApiGateway\Http\RequestValidator',
+            'apigateway.http.response' => 'Zyh\ApiGateway\Http\Response\Factory',
+            'apigateway.router' => 'Zyh\ApiGateway\Routing\Router',
+            'apigateway.router.adapter' => 'Zyh\ApiGateway\Contract\Routing\Adapter',
+            'apigateway.auth' => 'Zyh\ApiGateway\Auth\Auth',
+            'apigateway.limiting' => 'Zyh\ApiGateway\Http\RateLimit\Handler',
+            'apigateway.url' => 'Zyh\ApiGateway\Routing\UrlGenerator',
+            'apigateway.exception' => ['Zyh\ApiGateway\Exception\Handler', 'Zyh\ApiGateway\Contract\Debug\ExceptionHandler'],
         ];
 
         foreach ($aliases as $key => $aliases) {
@@ -113,7 +113,7 @@ class ZyhServiceProvider extends ServiceProvider
      */
     protected function registerExceptionHandler()
     {
-        $this->app->singleton('api.exception', function ($app) {
+        $this->app->singleton('apigateway.exception', function ($app) {
             return new ExceptionHandler($app['Illuminate\Contracts\Debug\ExceptionHandler'], $this->config('errorFormat'), $this->config('debug'));
         });
     }
@@ -125,7 +125,7 @@ class ZyhServiceProvider extends ServiceProvider
      */
     public function registerDispatcher()
     {
-        $this->app->singleton('api.dispatcher', function ($app) {
+        $this->app->singleton('apigateway.dispatcher', function ($app) {
             $dispatcher = new Dispatcher($app, $app['files'], $app['Zyh\ApiGateway\Routing\Router'], $app['Zyh\ApiGateway\Auth\Auth']);
 
             $dispatcher->setSubtype($this->config('subtype'));
@@ -146,7 +146,7 @@ class ZyhServiceProvider extends ServiceProvider
      */
     protected function registerAuth()
     {
-        $this->app->singleton('api.auth', function ($app) {
+        $this->app->singleton('apigateway.auth', function ($app) {
             return new Auth($app['Zyh\ApiGateway\Routing\Router'], $app, $this->config('auth'));
         });
     }

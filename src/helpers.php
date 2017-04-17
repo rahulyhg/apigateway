@@ -10,6 +10,6 @@ if (! function_exists('version')) {
      */
     function version($version)
     {
-        return app('api.url')->version($version);
+        return app('apigateway.url')->version($version);
     }
 }

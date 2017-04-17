@@ -49,9 +49,9 @@ class LumenServiceProvider extends ZyhServiceProvider
         });
 
         $this->app->routeMiddleware([
-            'api.auth' => Auth::class,
-            'api.throttle' => RateLimit::class,
-            'api.controllers' => PrepareController::class,
+            'apigateway.auth' => Auth::class,
+            'apigateway.throttle' => RateLimit::class,
+            'apigateway.controllers' => PrepareController::class,
         ]);
     }
 
@@ -76,7 +76,7 @@ class LumenServiceProvider extends ZyhServiceProvider
     {
         parent::register();
 
-        $this->app->singleton('api.router.adapter', function ($app) {
+        $this->app->singleton('apigateway.router.adapter', function ($app) {
             return new LumenAdapter($app, new StdRouteParser, new GcbDataGenerator, GroupCountBased::class);
         });
     }

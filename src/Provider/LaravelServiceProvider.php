@@ -39,9 +39,9 @@ class LaravelServiceProvider extends ZyhServiceProvider
             $this->updateRouterBindings();
         });
 
-        $this->addMiddlewareAlias('api.auth', Auth::class);
-        $this->addMiddlewareAlias('api.throttle', RateLimit::class);
-        $this->addMiddlewareAlias('api.controllers', PrepareController::class);
+        $this->addMiddlewareAlias('apigateway.auth', Auth::class);
+        $this->addMiddlewareAlias('apigateway.throttle', RateLimit::class);
+        $this->addMiddlewareAlias('apigateway.controllers', PrepareController::class);
     }
 
     /**
@@ -52,7 +52,7 @@ class LaravelServiceProvider extends ZyhServiceProvider
     protected function replaceRouteDispatcher()
     {
         $this->app->singleton('illuminate.route.dispatcher', function ($app) {
-            return new ControllerDispatcher($app['api.router.adapter']->getRouter(), $app);
+            return new ControllerDispatcher($app['apigateway.router.adapter']->getRouter(), $app);
         });
     }
 
@@ -65,7 +65,7 @@ class LaravelServiceProvider extends ZyhServiceProvider
     protected function updateRouterBindings()
     {
         foreach ($this->getRouterBindings() as $key => $binding) {
-            $this->app['api.router.adapter']->getRouter()->bind($key, $binding);
+            $this->app['apigateway.router.adapter']->getRouter()->bind($key, $binding);
         }
     }
 
@@ -101,7 +101,7 @@ class LaravelServiceProvider extends ZyhServiceProvider
      */
     protected function registerRouterAdapter()
     {
-        $this->app->singleton('api.router.adapter', function ($app) {
+        $this->app->singleton('apigateway.router.adapter', function ($app) {
             return new LaravelAdapter($app['router']);
         });
     }

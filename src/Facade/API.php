@@ -14,7 +14,7 @@ class API extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'api.dispatcher';
+        return 'apigateway.dispatcher';
     }
 
     /**
@@ -26,7 +26,7 @@ class API extends Facade
      */
     public static function error(callable $callback)
     {
-        return static::$app['api.exception']->register($callback);
+        return static::$app['apigateway.exception']->register($callback);
     }
 
     /**
@@ -36,7 +36,7 @@ class API extends Facade
      */
     public static function auth()
     {
-        return static::$app['api.auth'];
+        return static::$app['apigateway.auth'];
     }
 
     /**
@@ -46,7 +46,7 @@ class API extends Facade
      */
     public static function user()
     {
-        return static::$app['api.auth']->user();
+        return static::$app['apigateway.auth']->user();
     }
 
     /**
@@ -56,7 +56,7 @@ class API extends Facade
      */
     public static function internal()
     {
-        return static::$app['api.router']->getCurrentRequest() instanceof InternalRequest;
+        return static::$app['apigateway.router']->getCurrentRequest() instanceof InternalRequest;
     }
 
     /**
@@ -66,6 +66,6 @@ class API extends Facade
      */
     public static function router()
     {
-        return static::$app['api.router'];
+        return static::$app['apigateway.router'];
     }
 }

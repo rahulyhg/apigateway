@@ -56,15 +56,15 @@ class Cache extends Command
 
         $this->call('route:cache');
 
-        $routes = $app['api.router']->getAdapterRoutes();
+        $routes = $app['apigateway.router']->getAdapterRoutes();
 
         foreach ($routes as $collection) {
             foreach ($collection as $route) {
-                $app['api.router.adapter']->prepareRouteForSerialization($route);
+                $app['apigateway.router.adapter']->prepareRouteForSerialization($route);
             }
         }
 
-        $stub = "app('api.router')->setAdapterRoutes(unserialize(base64_decode('{{routes}}')));";
+        $stub = "app('apigateway.router')->setAdapterRoutes(unserialize(base64_decode('{{routes}}')));";
         $path = $this->laravel->getCachedRoutesPath();
 
         if (! $this->files->exists($path)) {

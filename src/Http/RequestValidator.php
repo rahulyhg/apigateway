@@ -97,7 +97,7 @@ class RequestValidator
 
         // The accept validator will always be run once any of the previous validators have
         // been run. This ensures that we only run the accept validator once we know we
-        // have a request that is targeting the API.
+        // have a request that is targeting the apigateway.
         if ($passed) {
             $this->container->make(Accept::class)->validate($request);
         }

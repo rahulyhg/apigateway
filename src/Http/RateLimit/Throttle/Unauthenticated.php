@@ -15,6 +15,6 @@ class Unauthenticated extends Throttle
      */
     public function match(Container $container)
     {
-        return ! $container['api.auth']->check();
+        return ! $container['apigateway.auth']->check();
     }
 }

@@ -364,7 +364,7 @@ class Router
      */
     protected function addControllerMiddlewareToRouteAction(array $action)
     {
-        array_unshift($action['middleware'], 'api.controllers');
+        array_unshift($action['middleware'], 'apigateway.controllers');
 
         return $action;
     }
@@ -741,7 +741,7 @@ class Router
     {
         $this->adapter->setRoutes($routes);
 
-        $this->container->instance('api.routes', $this->getRoutes());
+        $this->container->instance('apigateway.routes', $this->getRoutes());
     }
 
     /**
